@@ -12,8 +12,7 @@ import os
 # sample.upper()
 # sample.lower()
 # sample.title()
-# sample.casefold()
-# #Basically a more aggressive form of .lower()
+# sample.casefold() - Basically a more aggressive form of .lower()
 
 ## Some common character checks
 # sample.isalpha()
@@ -23,6 +22,7 @@ import os
 ## Positioning/Index?
 # sample[0] # first digit
 # sample[-1] # last digit
+# sample.endswith('."') # OUTPUT 'True' or 'False'
 
 ### GETTING WORD COUNTS FROM TEXT
 
