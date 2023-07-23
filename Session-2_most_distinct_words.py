@@ -3,6 +3,8 @@
 #Semantic analysis is the process of drawing meaning from text by analyzing its grammatical structure and identifying relationships between individual words in a particular context
 
 # most distinctive words
+# Collocations are words which are conventionally used together
+# Stop words appear everywhere so frequent collocant
 
 import os
 from scipy.stats import fisher_exact

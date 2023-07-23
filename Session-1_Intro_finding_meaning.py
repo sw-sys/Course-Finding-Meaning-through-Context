@@ -1,7 +1,11 @@
 # NOTES from https://github.com/jdportercode/TAP23
+# 
+# Getting word counts from texts
+#
 
-sample = "The pig and the dog went out to play. They had a ball and a stick. It was snack time and they shared a chocolate bar. This is a good way to play"
+import os
 
+# sample = "The pig and the dog went out to play. The dog had a ball and the pig had a stick. It was snack time and they shared a chocolate bar. This is a good way to play."
 # sample.casefold()
 
 ## Some common case methods
@@ -20,20 +24,39 @@ sample = "The pig and the dog went out to play. They had a ball and a stick. It 
 # sample[0] # first digit
 # sample[-1] # last digit
 
-# Takes a word and returns a cleaned up version of the word
-def wordcleaner(someword):
-    cleanword = someword.casefold()
-    while cleanword and not cleanword[-1].isalnum():
-        cleanword = cleanword[:-1]
-    while not cleanword[0].isalnum():
-        return cleanword
+### GETTING WORD COUNTS FROM TEXT
 
-# print(wordcleaner(sample))
+# filename
+fn = "Chopin_Awakening.txt"
+
+# open file
+with open (fn) as source:
+    text = source.read()
+
+# turn text in to words
+words = text.split()
+
+# # check everythign working - first 100 words
+# print(words[:100])
+
+# clean the words
+
+def alphaclean(someword):
+    chars = [i for i in someword if i.isalpha()]
+    cleanword = ''.join(chars)
+    cleanword = cleanword.lower()
+    return cleanword
+
+# # test func w/ first 100 words
+# print(alphaclean(words[:100]))
 
 # count the words
 counts = {}
 
-cleanwords = [wordcleaner(w) for w in words]
-
 for w in words:
-    cleanwords.append(wordcleaner(w))
+    w = alphaclean(w)
+    if w not in counts:
+        counts[w] = 0
+    counts[w] += 1
+
+print(counts['edna'])
